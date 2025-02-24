@@ -82,8 +82,9 @@ production:
   primary: &primary_production
     <<: *default
     database: urban_auto_production
-    username: urban_auto
-    password: <%= ENV["URBAN_AUTO_DATABASE_PASSWORD"] %>
+    username: <%= ENV["POSTGRES_USER"] %>
+    password: <%= ENV["POSTGRES_PASSWORD"] %>
+    host: <%= ENV["DB_HOST"] %>
   cache:
     <<: *primary_production
     database: urban_auto_production_cache

@@ -1,0 +1,4 @@
+CREATE DATABASE urnban_auto_production;
+CREATE DATABASE urnban_auto_production_cache;
+CREATE DATABASE urnban_auto_production_queue;
+CREATE DATABASE urnban_auto_production_cable;
