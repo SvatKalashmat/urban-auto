@@ -81,6 +81,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     database: urban_auto_production
     username: urban_auto
     password: <%= ENV["URBAN_AUTO_DATABASE_PASSWORD"] %>
