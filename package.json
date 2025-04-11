@@ -2,26 +2,37 @@
   "name": "app",
   "private": true,
   "devDependencies": {
-    "esbuild": "^0.25.1"
+    "esbuild": "^0.25.2",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "file-loader": "^6.2.0"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --asset-names=webfonts/[name] --loader:.woff=file --loader:.woff2=file --loader:.eot=file --loader:.ttf=file --loader:.svg=file --loader:.png=file",
     "build:css:compile": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
     "build:css:prefix": "postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css",
     "build:css": "yarn build:css:compile && yarn build:css:prefix",
     "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\""
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.13",
     "@popperjs/core": "^2.11.8",
+    "animate.css": "^4.1.1",
     "autoprefixer": "^10.4.21",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "bootstrap-star-rating": "^4.1.2",
+    "jquery": "3",
+    "jquery.cookie": "^1.4.1",
+    "magnific-popup": "^1.2.0",
     "nodemon": "^3.1.9",
+    "owl.carousel2": "^2.2.2",
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.1",
-    "sass": "^1.86.0"
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.86.0",
+    "simple-line-icons": "^2.5.5"
   },
   "browserslist": [
     "defaults"
